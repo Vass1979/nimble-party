@@ -1,0 +1,90 @@
+{
+	"NIMBLE_PARTY": {
+		"sheet": {
+			"label": "Nimble Party Group"
+		},
+		"groupName": {
+			"friendly": "Party",
+			"hostile": "Enemy Group",
+			"neutral": "Group",
+			"secret": "Hidden Group"
+		},
+		"controls": {
+			"toggle": "Merge / Dump Party",
+			"merge": "Merge into group",
+			"dump": "Dump group"
+		},
+		"row": {
+			"openSheet": "Open character sheet",
+			"locate": "Pan to & select token",
+			"eject": "Eject from group",
+			"wounds": "Wounds",
+			"mana": "Mana",
+			"armor": "Armor",
+			"conditions": "Active conditions"
+		},
+		"macro": {
+			"name": "Nimble Party: Merge / Dump"
+		},
+		"keybindings": {
+			"mergeDump": {
+				"name": "Merge / Dump Party",
+				"hint": "Merge the selected tokens into a group, or dump the selected group token back onto the scene."
+			}
+		},
+		"settings": {
+			"dumpPlacement": {
+				"name": "Dump placement",
+				"hint": "How member tokens are positioned when a group is dumped.",
+				"ring": "Fan out around the group token",
+				"original": "Restore original positions"
+			},
+			"groupVision": {
+				"name": "Group token vision",
+				"hint": "Give friendly (party) group tokens token vision so players can see while travelling.",
+				"label": ""
+			},
+			"aggregateHpBar": {
+				"name": "Aggregate party HP bar",
+				"hint": "Drive the group token's health bar from the summed HP of its members."
+			},
+			"autoMacro": {
+				"name": "Create hotbar macro",
+				"hint": "Create a reusable \"Merge / Dump\" script macro the first time the world loads."
+			},
+			"defaultPartyImage": {
+				"name": "Default party token image",
+				"hint": "Optional image used for new group tokens. Leave blank to use the first member's token art."
+			},
+			"partyPortrait": {
+				"name": "Party portrait image",
+				"hint": "Actor portrait for friendly (party) groups. Leave blank to use the bundled default."
+			},
+			"partyToken": {
+				"name": "Party token image",
+				"hint": "Token art for friendly (party) groups. Leave blank to use the bundled default."
+			},
+			"enemyPortrait": {
+				"name": "Enemy portrait image",
+				"hint": "Actor portrait for hostile / neutral groups. Leave blank to use the bundled default."
+			},
+			"enemyToken": {
+				"name": "Enemy token image",
+				"hint": "Token art for hostile / neutral groups. Leave blank to use the bundled default."
+			}
+		},
+		"notifications": {
+			"gmOnly": "Only the GM can merge or dump party groups.",
+			"selectTwo": "Select at least two tokens of the same disposition to merge.",
+			"merged": "Merged {count} tokens into \"{name}\".",
+			"mergeFailed": "Could not create the group — see the console for details.",
+			"dumped": "Dumped {count} tokens back onto the scene.",
+			"dumpFailed": "Could not dump the group — see the console for details.",
+			"ejected": "Ejected {name} from the group.",
+			"ejectFailed": "Could not eject that member — see the console for details.",
+			"skippedCombat": "Tokens already in combat were skipped to avoid breaking the tracker.",
+			"skippedSingletons": "A disposition with only one selected token was skipped.",
+			"noLiveActor": "This member is an unlinked token snapshot with no character sheet to open."
+		}
+	}
+}

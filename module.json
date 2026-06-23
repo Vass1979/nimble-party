@@ -1,0 +1,67 @@
+{
+	"id": "nimble-party",
+	"title": "Nimble Party",
+	"description": "Merge selected tokens into a single, shared group token to declutter travel, with a container sheet showing each member's live HP, wounds, mana, AC and conditions. Dump the group back onto the scene with one click to start an encounter. Works for parties and enemy groups alike. Built for the Nimble system.",
+	"version": "1.2.1",
+	"compatibility": {
+		"minimum": "13",
+		"verified": "13"
+	},
+	"relationships": {
+		"systems": [
+			{
+				"id": "nimble",
+				"type": "system",
+				"compatibility": {
+					"minimum": "0.8.7"
+				}
+			}
+		]
+	},
+	"authors": [
+		{
+			"name": "Vass1979",
+			"url": "https://github.com/Vass1979"
+		}
+	],
+	"esmodules": [
+		"dist/nimble-party.js"
+	],
+	"styles": [
+		"styles/nimble-party.css"
+	],
+	"languages": [
+		{
+			"lang": "en",
+			"name": "English",
+			"path": "lang/en.json"
+		}
+	],
+	"documentTypes": {
+		"Actor": {
+			"group": {
+				"htmlFields": [],
+				"filePathFields": {}
+			}
+		}
+	},
+	"flags": {
+		"nimble-party": {
+			"hotReload": {
+				"extensions": [
+					"css",
+					"hbs",
+					"json"
+				],
+				"paths": [
+					"styles",
+					"templates",
+					"lang"
+				]
+			}
+		}
+	},
+	"url": "https://github.com/Vass1979/nimble-party",
+	"manifest": "https://github.com/Vass1979/nimble-party/releases/latest/download/module.json",
+	"download": "https://github.com/Vass1979/nimble-party/releases/latest/download/module.zip"
+}

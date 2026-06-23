@@ -1,0 +1,75 @@
+<div class="nimble-party-sheet">
+	<header class="nimble-party-sheet__header">
+		<div class="nimble-party-sheet__title">
+			<i class="fa-solid fa-people-group"></i>
+			<span>{{actor.name}}</span>
+			<span class="nimble-party-sheet__count">{{memberCount}}</span>
+		</div>
+
+		<div class="nimble-party-sheet__aggregate" aria-label="Party health">
+			<div class="nimble-party-sheet__aggregate-bar {{#if aggregate.bloodied}}is-bloodied{{/if}}" style="--pct: {{aggregate.pct}}%;">
+				<span class="nimble-party-sheet__aggregate-value">{{aggregate.value}} / {{aggregate.max}}</span>
+			</div>
+		</div>
+
+		{{#if isGM}}
+		<button type="button" class="nimble-party-sheet__dump" data-action="dumpAll">
+			<i class="fa-solid fa-people-arrows"></i>
+			<span>{{localize "NIMBLE_PARTY.controls.dump"}}</span>
+		</button>
+		{{/if}}
+	</header>
+
+	<ol class="nimble-party-sheet__rows">
+		{{#each rows as |row|}}
+		<li class="nimble-party-sheet__row {{#unless row.live}}is-snapshot{{/unless}}" data-index="{{row.index}}">
+			<button type="button" class="nimble-party-sheet__portrait" data-action="openMember" {{#unless row.canOpen}}disabled{{/unless}}
+				data-tooltip="{{localize 'NIMBLE_PARTY.row.openSheet'}}">
+				<img src="{{row.img}}" alt="{{row.name}}" />
+			</button>
+
+			<div class="nimble-party-sheet__identity">
+				<span class="nimble-party-sheet__name">{{row.name}}</span>
+				<div class="nimble-party-sheet__hp {{#if row.hp.bloodied}}is-bloodied{{/if}}" style="--pct: {{row.hp.pct}}%;">
+					<span class="nimble-party-sheet__hp-value">
+						{{row.hp.value}}{{#if row.hp.temp}} <span class="nimble-party-sheet__temp">(+{{row.hp.temp}})</span>{{/if}} / {{row.hp.max}}
+					</span>
+				</div>
+			</div>
+
+			<div class="nimble-party-sheet__stats">
+				<span class="nimble-party-sheet__stat" data-tooltip="{{localize 'NIMBLE_PARTY.row.wounds'}}">
+					<i class="fa-solid fa-droplet"></i>{{row.wounds.value}}{{#if row.wounds.max}}/{{row.wounds.max}}{{/if}}
+				</span>
+
+				{{#if row.mana}}
+				<span class="nimble-party-sheet__stat nimble-party-sheet__stat--mana" data-tooltip="{{localize 'NIMBLE_PARTY.row.mana'}}">
+					<i class="fa-solid fa-wand-sparkles"></i>{{row.mana.value}}/{{row.mana.max}}
+				</span>
+				{{/if}}
+
+				{{#if row.armor}}
+				<span class="nimble-party-sheet__stat" data-tooltip="{{localize 'NIMBLE_PARTY.row.armor'}}">
+					<i class="fa-solid fa-shield-halved"></i>{{row.armor}}
+				</span>
+				{{/if}}
+
+				{{#if row.conditions}}
+				<span class="nimble-party-sheet__stat nimble-party-sheet__stat--conditions" data-tooltip="{{localize 'NIMBLE_PARTY.row.conditions'}}">
+					<i class="fa-solid fa-bolt"></i>{{row.conditions}}
+				</span>
+				{{/if}}
+			</div>
+
+			{{#if @root.isGM}}
+			<div class="nimble-party-sheet__row-actions">
+				<button type="button" class="nimble-party-sheet__icon" data-action="ejectMember"
+					data-tooltip="{{localize 'NIMBLE_PARTY.row.eject'}}">
+					<i class="fa-solid fa-person-walking-arrow-right"></i>
+				</button>
+			</div>
+			{{/if}}
+		</li>
+		{{/each}}
+	</ol>
+</div>

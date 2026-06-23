@@ -1,0 +1,244 @@
+/*
+ * Nimble Party — styled to sit natively inside the Nimble system by consuming
+ * its --nimble-* design tokens (scoped under .theme-dark). Fallback values keep
+ * things legible under .theme-light or if the system isn't present.
+ */
+
+.nimble-party.application {
+	--np-box: var(--nimble-box-background-color, hsl(293, 10%, 17%));
+	--np-sheet-bg: var(--nimble-sheet-background, hsl(247, 16%, 11%));
+	--np-text: var(--nimble-dark-text-color, hsl(36, 53%, 80%));
+	--np-text-strong: var(--nimble-navigation-active-text-color, hsl(38, 38%, 94%));
+	--np-accent: var(--nimble-accent-color, hsl(278, 10%, 42%));
+	--np-border: var(--nimble-navigation-border-color, hsl(293, 10%, 25%));
+	--np-input-bg: var(--nimble-input-background-color, hsla(0, 0%, 0%, 0.3));
+	--np-hp: hsl(120, 38%, 42%);
+	--np-hp-bloodied: hsl(0, 55%, 45%);
+	--np-mana: hsl(212, 55%, 55%);
+}
+
+.nimble-party.application .window-content {
+	background: var(--np-sheet-bg);
+	color: var(--np-text);
+	padding: 0;
+}
+
+.nimble-party-sheet {
+	display: flex;
+	flex-direction: column;
+	gap: 0.5rem;
+	padding: 0.65rem;
+}
+
+/* ----- Header / aggregate party HP ----- */
+
+.nimble-party-sheet__header {
+	display: grid;
+	grid-template-columns: auto 1fr auto;
+	align-items: center;
+	gap: 0.6rem;
+	padding-bottom: 0.5rem;
+	border-bottom: 1px solid var(--np-border);
+}
+
+.nimble-party-sheet__title {
+	display: flex;
+	align-items: center;
+	gap: 0.4rem;
+	font-weight: 600;
+	color: var(--np-text-strong);
+	font-size: 1.05rem;
+}
+
+.nimble-party-sheet__count {
+	display: inline-grid;
+	place-items: center;
+	min-width: 1.4em;
+	height: 1.4em;
+	padding: 0 0.35em;
+	border-radius: 999px;
+	background: var(--np-accent);
+	color: var(--np-text-strong);
+	font-size: 0.72rem;
+}
+
+.nimble-party-sheet__aggregate-bar,
+.nimble-party-sheet__hp {
+	position: relative;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	height: 1.25rem;
+	border-radius: 4px;
+	background: var(--np-input-bg);
+	border: 1px solid var(--np-border);
+	overflow: hidden;
+}
+
+.nimble-party-sheet__aggregate-bar::before,
+.nimble-party-sheet__hp::before {
+	content: '';
+	position: absolute;
+	inset: 0;
+	width: var(--pct, 0%);
+	background: var(--np-hp);
+	transition: width 0.25s ease;
+}
+
+.nimble-party-sheet__aggregate-bar.is-bloodied::before,
+.nimble-party-sheet__hp.is-bloodied::before {
+	background: var(--np-hp-bloodied);
+}
+
+.nimble-party-sheet__aggregate-value,
+.nimble-party-sheet__hp-value {
+	position: relative;
+	z-index: 1;
+	font-size: 0.74rem;
+	font-variant-numeric: tabular-nums;
+	color: var(--np-text-strong);
+	text-shadow: 0 1px 2px rgba(0, 0, 0, 0.7);
+}
+
+.nimble-party-sheet__temp {
+	color: var(--np-mana);
+}
+
+/* ----- Member rows ----- */
+
+.nimble-party-sheet__rows {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+	display: flex;
+	flex-direction: column;
+	gap: 0.4rem;
+}
+
+.nimble-party-sheet__row {
+	display: grid;
+	grid-template-columns: 2.4rem minmax(0, 1fr) auto auto;
+	align-items: center;
+	gap: 0.55rem;
+	padding: 0.4rem;
+	border-radius: 6px;
+	background: var(--np-box);
+	border: 1px solid var(--np-border);
+}
+
+.nimble-party-sheet__row.is-snapshot {
+	opacity: 0.92;
+	border-style: dashed;
+}
+
+.nimble-party-sheet__portrait {
+	width: 2.4rem;
+	height: 2.4rem;
+	padding: 0;
+	border: 1px solid var(--np-border);
+	border-radius: 6px;
+	overflow: hidden;
+	background: var(--np-input-bg);
+	cursor: pointer;
+}
+
+.nimble-party-sheet__portrait img {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	display: block;
+}
+
+.nimble-party-sheet__portrait:disabled {
+	cursor: default;
+	opacity: 0.7;
+}
+
+.nimble-party-sheet__identity {
+	display: flex;
+	flex-direction: column;
+	gap: 0.2rem;
+	min-width: 0;
+}
+
+.nimble-party-sheet__name {
+	font-weight: 600;
+	color: var(--np-text-strong);
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+
+.nimble-party-sheet__stats {
+	display: flex;
+	align-items: center;
+	gap: 0.5rem;
+	font-size: 0.8rem;
+	font-variant-numeric: tabular-nums;
+}
+
+.nimble-party-sheet__stat {
+	display: inline-flex;
+	align-items: center;
+	gap: 0.28em;
+	white-space: nowrap;
+}
+
+.nimble-party-sheet__stat i {
+	opacity: 0.85;
+}
+
+.nimble-party-sheet__stat--mana i {
+	color: var(--np-mana);
+}
+
+.nimble-party-sheet__stat--conditions i {
+	color: var(--nimble-dark-text-glow-color, hsl(45, 70%, 60%));
+}
+
+/* ----- Buttons ----- */
+
+.nimble-party-sheet__row-actions {
+	display: flex;
+	gap: 0.25rem;
+}
+
+.nimble-party-sheet__icon,
+.nimble-party-sheet__dump {
+	display: inline-flex;
+	align-items: center;
+	gap: 0.35rem;
+	border: 1px solid var(--nimble-button-border-color, var(--np-border));
+	background: var(--nimble-button-background-color, var(--np-input-bg));
+	color: var(--nimble-button-text-color, var(--np-text));
+	border-radius: 5px;
+	cursor: pointer;
+}
+
+.nimble-party-sheet__icon {
+	width: 1.8rem;
+	height: 1.8rem;
+	justify-content: center;
+}
+
+.nimble-party-sheet__dump {
+	padding: 0.25rem 0.6rem;
+	font-size: 0.8rem;
+}
+
+.nimble-party-sheet__icon:hover,
+.nimble-party-sheet__dump:hover {
+	color: var(--np-text-strong);
+	border-color: var(--np-accent);
+}
+
+.nimble-party-sheet__icon:disabled {
+	opacity: 0.45;
+	cursor: default;
+}
+
+/* ----- Token HUD button ----- */
+
+.nimble-party-hud i {
+	pointer-events: none;
+}
