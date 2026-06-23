@@ -2,7 +2,7 @@
 	"id": "nimble-party",
 	"title": "Nimble Party",
 	"description": "Merge selected tokens into a single, shared group token to declutter travel, with a container sheet showing each member's live HP, wounds, mana, AC and conditions. Dump the group back onto the scene with one click to start an encounter. Works for parties and enemy groups alike. Built for the Nimble system.",
-	"version": "1.2.1",
+	"version": "1.0.0",
 	"compatibility": {
 		"minimum": "13",
 		"verified": "13"
