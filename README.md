@@ -13,7 +13,7 @@ It works for any disposition, so you can bundle enemies into an "Enemy Group" th
 - **Dump** the whole group back onto the scene, fanned out around the group token (or restored to original positions — your choice).
 - **Disposition-aware**: friendly, hostile, neutral and secret selections form separate groups.
 - **Aggregate HP bar** on the group token, summed from members, for an at-a-glance travel health read.
-- **Custom group art**: ships with bundled party and enemy portraits + tokens, used automatically by disposition. The GM can override each (party portrait, party token, enemy portrait, enemy token) from the module settings with a file picker.
+- **Custom group art**: set your own party and enemy portraits + tokens (used automatically by disposition) from the module settings with a file picker. Ships with no bundled artwork — group tokens use Foundry's built-in icons until you supply your own.
 - **Vision** on friendly group tokens so players aren't blinded while travelling.
 - Triggerable from the **scene controls** toolbar, a **keybinding** (Alt+G by default), the **token HUD** (a contextual merge/dump button), or a **hotbar macro** created for you on first load.
 - Lossless and crash-safe: each token is fully snapshotted before anything is deleted, and the snapshot is stored on the group actor (so dumps survive reloads). Tokens already in combat are skipped to avoid orphaning their combatant.

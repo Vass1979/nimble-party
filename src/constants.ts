@@ -14,12 +14,16 @@ export const GROUP_TYPE = `${MODULE_ID}.group`;
 /** Default artwork for a freshly created group token / actor. */
 export const DEFAULT_GROUP_IMAGE = 'icons/svg/mystery-man.svg';
 
-/** Bundled default art, used unless the GM overrides it in settings. */
+/**
+ * Default art by disposition. These point at Foundry's built-in core icons so
+ * the module ships with no bundled artwork. Drop your own human-made art in via
+ * the module settings (party/enemy portrait + token), or replace these paths.
+ */
 export const ASSETS = {
-	partyPortrait: `modules/${MODULE_ID}/assets/Player_Party.png`,
-	partyToken: `modules/${MODULE_ID}/assets/Player_Party_Token.png`,
-	enemyPortrait: `modules/${MODULE_ID}/assets/Enemy_Party.png`,
-	enemyToken: `modules/${MODULE_ID}/assets/Enemy_Party_Token.png`,
+	partyPortrait: 'icons/svg/mystery-man.svg',
+	partyToken: 'icons/svg/mystery-man.svg',
+	enemyPortrait: 'icons/svg/terror.svg',
+	enemyToken: 'icons/svg/terror.svg',
 } as const;
 
 /** Settings keys. */
