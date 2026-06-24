@@ -9,7 +9,7 @@ It works for any disposition, so you can bundle enemies into an "Enemy Group" th
 ## Features
 
 - **Merge** the selected tokens into a shared group token (parties are owned by all players so anyone can move them; enemy groups stay GM-controlled).
-- **Container sheet** with live per-member HP / wounds / mana / AC / conditions, member portraits, sheet click-through, ping-to-locate, and eject.
+- **Container sheet** with live per-member HP / wounds / mana / Armor / conditions, member portraits, sheet click-through, ping-to-locate, and eject.
 - **Dump** the whole group back onto the scene, fanned out around the group token (or restored to original positions — your choice).
 - **Disposition-aware**: friendly, hostile, neutral and secret selections form separate groups.
 - **Aggregate HP bar** on the group token, summed from members, for an at-a-glance travel health read.
