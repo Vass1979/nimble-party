@@ -2,7 +2,7 @@
 
 A Foundry VTT v13 module for the [Nimble](https://github.com/Nimble-Co/FoundryVTT-Nimble) system that collapses a crowd of tokens into a single, shared **group token** so map travel stays tidy — then spills everyone back out in one click when an encounter starts.
 
-Select your heroes, hit the button, and they merge into one token everyone can move. The group token's sheet is a container showing one row per member with their **live HP (and temp), wounds, mana, AC and active conditions**, a click-through to each character's real sheet, and a per-member eject. Press the button again with the group token selected to dump everyone back onto the scene and dissolve the group.
+Select your heroes, hit the button, and they merge into one token everyone can move. The group token's sheet is a container showing one row per member with their **live HP (and temp), wounds, mana, Armor and active conditions**, a click-through to each character's real sheet, and a per-member eject. Press the button again with the group token selected to dump everyone back onto the scene and dissolve the group.
 
 It works for any disposition, so you can bundle enemies into an "Enemy Group" the same way — selections are automatically split by disposition into separate groups.
 
